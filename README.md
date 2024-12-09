@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Getting started
 
-## Getting Started
+Create a new nextjs project
+```
+npx create-next-app@latest
+```
+Give a project name and accept default value. To run the project run 
+```
+ npm run dev
+ ```
 
-First, run the development server:
+## Routing
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* All routes must be placed inside the **app** folder
+* Every file that corresponds to the route must be named `page.jsx` or `page.tsx`
+* Each folder corresponds to the path segment in the browser URL
+
+
+For the home page route in a folder `app` create a file name `page.tsx`
+```
+export default function Home() {
+  return (<h1>
+
+    This is home page!
+  </h1>);
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`layout.tsx` file is for nav bar and footer which can be shared in all the pages of the app. In `layout.tsx` file
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <header>This is header of the page</header>
+        {children}
+        <footer>This is footer of the page</footer>
+        </body>
+    </html>
+  )
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create a route `/about` we need to create a folder named `about` inside `app` folder and create a file name `page.tsx` in `about` folder. This will be the route for `/about`
 
-## Learn More
+```
+  const About = ()=>{
 
-To learn more about Next.js, take a look at the following resources:
+    return <>
+    <h2>This is about page!</h2>
+    </>
+}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export default About;
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Nested Routing
+Nested route such as `/blog`,  `/blog/first` and `/blog/second`
+to achieve this routes:
+for that we can create a folder named `blog` and create a `page.tsx` file for `/blog` route
+for `/blog/first` we can create another folder named `first` inside `blog` folder and create a file `page.tsx` same for `/blog/second`. Create a folder inside `blog` folder named `second` and create a `page.tsx` file in that `second` folder.

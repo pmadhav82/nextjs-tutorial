@@ -14,9 +14,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header >
-          <nav className="inline-grid grid-cols-3 gap-4 w-full">
+          <nav style={{display:"flex", justifyContent: "flex-start", gap:"2rem"}}>
 
-<Link className="bg-yellow-400" href={"/"}>
+<Link href={"/"}>
 Home
 </Link>
       
@@ -24,9 +24,22 @@ Home
   About Us
 </Link>
 
+
+<Link href="/blog">
+  Blog
+</Link>
+
+
+<Link href="/products">
+
+  View Products
+</Link>
+
           </nav>
 
         </header>
+
+        
         {children}
         <footer>This is footer of the page</footer>
         </body>
