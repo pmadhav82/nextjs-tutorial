@@ -1,5 +1,5 @@
-'use client'
-import { useEffect, useState } from "react"
+
+
 
 type Prop = {
     params:{productId:number}
@@ -10,8 +10,6 @@ type Product = {
     detail:string
 }
 
-
-type ProductList = [Product];
 
 
 const productDetail= [
@@ -35,31 +33,21 @@ const productDetail= [
     ]
 
 
-export default    function ProductDetail({params}:Prop){
+export default   async function ProductDetail({params}:Prop){
    
 
 
-const [product, setProduct] = useState<Product>({id:0, detail:""});
-
-
-useEffect(()=>{
-
-    const getProduct= async()=>{
 const {productId} = await params;
 
-    const product = productDetail.find(product=> product.id === productId);
-    console.log(productId);
-    if(product){
-        setProduct(product);
-    }
 
-    }
-getProduct();
-},[params])
+const product = productDetail.find(product=> product.id === Number(productId));
+
+
+
 
 return <>
 
-<h2>{product.detail}</h2>
+{product? <h2>{product.detail}</h2> : <h2>Product detail could not be found !</h2>}
 
     </>
 }
