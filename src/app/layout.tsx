@@ -35,6 +35,12 @@ Home
   View Products
 </Link>
 
+
+
+<Link href="/docs">
+
+  Docs
+</Link>
           </nav>
 
         </header>
