@@ -41,6 +41,12 @@ Home
 
   Docs
 </Link>
+
+
+<Link href={"/profile"}>
+Profile
+</Link>
+      
           </nav>
 
         </header>
