@@ -15,6 +15,10 @@ export default function Docs({ params }: { params: { slug: string[] } }) {
     contain = `This is about: docs/${getURLPath(params.slug)}`;
   }
 
+
+
+
+
   return (
     <>
       <h3>{contain}</h3>
