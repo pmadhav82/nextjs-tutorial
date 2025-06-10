@@ -1,6 +1,13 @@
 import Link from "next/link"
 
-export default function Blog(){
+export default async function Blog(){
+
+await new Promise((resolve)=>{
+
+    setTimeout(()=>{
+        resolve("Promise resolve")
+    },2000)
+})
 
     return <>
     
