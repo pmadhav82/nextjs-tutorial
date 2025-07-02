@@ -12,7 +12,8 @@ const pathName = usePathname();
     name:"Home", href:"/"
 },
 {name: "Blog", href:"/blog"},
-{name:"Products", href:"/products"}
+{name:"Products", href:"/products"},
+{name: "Todo App", href: "/todo"}
 
     ]
 
